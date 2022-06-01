@@ -17,7 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/calculate', 'CalculateController@getcalc');
-// Route::get('/calculate', [CalculateController::class, 'showPage']);
-// Route::get('/calculate/', 'App\\Http\\Controllers\CalculateController');
-Route::get('/calculate', 'CalculateController@getcalc')->name('calculate');
+// Route::get('/calculate', 'CalculateController@getcalc')->name('calculate');
+
+Route::get('/calculate', function () {
+    return view('calculate/num');
+});
