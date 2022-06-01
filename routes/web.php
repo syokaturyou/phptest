@@ -23,5 +23,14 @@ Route::get('/calculate', function () {
     return view('calculate/num');
 });
 
-Route::get('/crud', 'CrudController@getIndex');
+// Route::get('/crud', 'CrudController@getIndex');
+Route::get('/crud', function () {
+    return view('crud/index');
+});
 // Route::get('/boot_template', 'Boot_templateController@getIndex');
+
+Route::get('/user','UserController@getindex')->name('user');
+
+// Route::get('/user', function () {
+//     return view('user/index');
+// });
