@@ -22,3 +22,6 @@ Route::get('/', function () {
 Route::get('/calculate', function () {
     return view('calculate/num');
 });
+
+Route::get('/crud', 'CrudController@getIndex');
+// Route::get('/boot_template', 'Boot_templateController@getIndex');
