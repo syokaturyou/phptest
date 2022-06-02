@@ -28,8 +28,8 @@
               <a href="" class="btn" style="background-color: f0ad4e; color: white; width: 100px;"><i class="fas fa-plus"></i> 新規登録</a>
             </div>
           </div>
-          {{Form::open(['url' => '/', 'files' => true])}}
-          {{Form::token()}}
+         
+          
               <!--テーブル-->
           <div class="table-responsive">
             <table class="table" style="width: 1000px; max-width: 0 auto;">
@@ -70,7 +70,7 @@
             </table>
           </div>
           <!--/テーブル-->
-          {{Form::close()}}
+          
         </div><!-- /container -->
       </div>
     </div>

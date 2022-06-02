@@ -29,8 +29,12 @@ Route::get('/crud', function () {
 });
 // Route::get('/boot_template', 'Boot_templateController@getIndex');
 
-Route::get('/user','UserController@getindex')->name('user');
+Route::get('/boot_template', function () {
+    return view('boot_template/index');
+});
 
+Route::get('/user','UserController@getindex')->name('user');
+Route::get('student/list','StudentController@getIndex')->name('student');
 // Route::get('/user', function () {
 //     return view('user/index');
 // });
