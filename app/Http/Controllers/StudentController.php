@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-  public function getIndex()
+  public function getlist()
   {
-  $query = \App\Student::query();
+  // $query = \App\Student::query();
   // 全件取得 +ページネーション
-  $students = $query->orderBy('id','desc')->paginate(10);
-  return view('student.list')->with('students',$students);
+  // $students = $query->orderBy('id','desc')->paginate(10);
+  // return view('student.list')->with('students',$students);
   }
 }

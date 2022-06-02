@@ -34,7 +34,11 @@ Route::get('/boot_template', function () {
 });
 
 Route::get('/user','UserController@getindex')->name('user');
-Route::get('student/list','StudentController@getIndex')->name('student');
 // Route::get('/user', function () {
 //     return view('user/index');
 // });
+
+// Route::get('/student/list','StudentController@getlist')->name('student');
+Route::get('/student/list', function () {
+    return view('student/list');
+});
