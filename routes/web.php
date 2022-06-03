@@ -33,13 +33,18 @@ Route::get('/boot_template', function () {
     return view('boot_template/index');
 });
 
-Route::get('/user','UserController@getindex')->name('user');
+Route::get('/users','UserController@getindex')->name('users');
 Route::get('/user/{id}','UserController@getshow')->name('user.show');
+Route::get('/users/create','UserController@create')->name('users.create');
+Route::get('/users/{id}/edit','UserController@edit')->name('user.edit');
+// Route::get('/users/store','UserController@store')->name('users.store');
 // Route::get('/user', function () {
 //     return view('user/index');
 // });
 
 // Route::get('/student/list','StudentController@getlist')->name('student');
-Route::get('/student/list', function () {
-    return view('student/list');
-});
+// Route::get('/student/list', function () {
+//     return view('student/list');
+// });
+
+Route::get('/student/list','StudentController@getlist')->name('student.list');

@@ -1,3 +1,9 @@
+@extends('layouts.master_bootstrap')
+@section('title', '受講生一覧')
+@section('stylesheet')
+<link rel="stylesheet" href="css/toiawase.css"/>
+@endsection
+@section('content')
 <h1>受講生</h1>
 <div class="page-header" style="margin-top:-30px;padding-bottom:0px;">
   <h1><small>受講生一覧</small></h1>
@@ -13,15 +19,21 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td></td>
-      <td>
-        <a href="" class="btn btn-primary btn-sm">詳細</a>
-        <a href="" class="btn btn-primary btn-sm">編集</a>
-        <a href="" class="btn btn-danger btn-sm">削除</a>
-      </td>
-    </tr>
+    @foreach($students as $student)
+      <tr>
+        <td>{{$student->id}}</td>
+        <td>{{$student->name}}</td>
+        <td>{{$student->email}}</td>
+        <td>{{$student->tel}}</td>
+        <td>
+          <a href="" class="btn btn-primary btn-sm">詳細</a>
+          <a href="" class="btn btn-primary btn-sm">編集</a>
+          <a href="" class="btn btn-danger btn-sm">削除</a>
+        </td>
+      </tr>
+    @endforeach
   </tbody>
 </table>
 
 <!-- page control -->
+@endsection
