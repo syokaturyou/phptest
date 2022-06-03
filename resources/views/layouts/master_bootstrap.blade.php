@@ -7,12 +7,11 @@
     <title>@yield('title')</title>
       <!--Bootstrap CSS -->
       {{--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">--}}
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/css/style.css') }}">
     <!--Font Awesome5-->
     <link rel="stylesheet" href="https:/use.fontawesome.com/releases/v5.6.3/css/all.css">
   </head>
   <body class="d-flex flex-column">
-    aaa
     <!-- ヘッダー -->
     @include('layouts.header_bootstrap')
     <!-- コンテンツ -->

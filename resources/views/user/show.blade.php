@@ -1,4 +1,5 @@
 <html>
+  @extends('layouts.master_bootstrap')
   <head>
 　  <title>ユーザー</title>
 　</head>
