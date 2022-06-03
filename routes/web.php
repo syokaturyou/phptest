@@ -34,6 +34,7 @@ Route::get('/boot_template', function () {
 });
 
 Route::get('/user','UserController@getindex')->name('user');
+Route::get('/user/{id}','UserController@getshow')->name('user.show');
 // Route::get('/user', function () {
 //     return view('user/index');
 // });
