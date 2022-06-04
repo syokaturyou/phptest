@@ -47,4 +47,16 @@ Route::get('/users/{id}/edit','UserController@edit')->name('user.edit');
 //     return view('student/list');
 // });
 
-Route::get('/student/list','StudentController@getlist')->name('student.list');
+// Route::get('/student/list','StudentController@getlist')->name('student.list');
+// Route::get('/student/{id}/edit','StudentController@getedit')->name('student.edit');
+// Route::get('/student/edit/{id}', 'StudentController@getedit')->name('student.edit');
+
+Route::group(['prefix'=>'student'], function () {
+  Route::get('list', 'StudentController@getlist')->name('student.list');
+  Route::get('create', 'StudentController@create')->name('student.create');
+  Route::post('store', 'StudentController@store')->name('student.store');
+  Route::get('show/{id}', 'StudentController@show')->name('student.show');
+  Route::get('edit/{id}', 'StudentController@getedit')->name('student.edit');
+  Route::post('update/{id}', 'StudentController@update')->name('student.update');
+  Route::post('destroy/{id}', 'StudentController@destroy')->name('student.destroy');
+});

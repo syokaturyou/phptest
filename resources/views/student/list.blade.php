@@ -9,6 +9,7 @@
   <h1><small>受講生一覧</small></h1>
 </div>
 <table class="table table-striped table-hover">
+  <a href="{{ route('student.create') }}" class="btn btn-success btn-sm">新規作成</a>
   <thead>
     <tr>
       <th>No</th>
@@ -26,9 +27,14 @@
         <td>{{$student->email}}</td>
         <td>{{$student->tel}}</td>
         <td>
-          <a href="" class="btn btn-primary btn-sm">詳細</a>
-          <a href="" class="btn btn-primary btn-sm">編集</a>
-          <a href="" class="btn btn-danger btn-sm">削除</a>
+          <a href="{{route('student.show',['id'=>$student->id])}}" class="btn btn-primary btn-sm">詳細</a>
+          <a href="{{ url('student/edit/'.$student->id.'') }}" class="btn btn-primary btn-sm">編集</a>
+          <a>
+            <form method="POST" action="{{route('student.destroy',['id'=>$student->id])}}">
+              @csrf
+              <button type="submit" class="btn btn-danger btn-sm">削除</button>
+            </form>
+          </a>
         </td>
       </tr>
     @endforeach
