@@ -50,7 +50,7 @@ class StudentController extends Controller
     $student=Student::find($id);
     $student->name=$request->input('name');
     $student->email=$request->input('email');
-    $student->email=$request->input('tel');
+    $student->tel=$request->input('tel');
     //DBに保存
     $student->save();
     //処理が終わったらstudent/listにリダイレクト

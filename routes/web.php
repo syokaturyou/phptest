@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::resource('book', BookController::class);
 
 Route::get('/', function () {
     return view('welcome');
@@ -59,4 +62,20 @@ Route::group(['prefix'=>'student'], function () {
   Route::get('edit/{id}', 'StudentController@getedit')->name('student.edit');
   Route::post('update/{id}', 'StudentController@update')->name('student.update');
   Route::post('destroy/{id}', 'StudentController@destroy')->name('student.destroy');
+});
+
+// Route::prefix('contents')->group(function() {
+//     Route::get('/list', 'ContentController@list')->name('contents.list');
+//     Route::get('/create', 'ContentController@create')->name('contents.create');
+//     Route::get('/update/{content_id}', 'ContentController@update')->name('contents.update');
+//     Route::get('/delete/{content_id}', 'ContentController@delete')->name('contents.delete');
+//     Route::post('/save', 'ContentController@save')->name('contents.save');
+// });
+
+Route::prefix('contents')->group(function() {
+    Route::get('/list', [ContentController::class, 'list'])->name('contents.list');
+    Route::get('/create', [ContentController::class, 'create'])->name('contents.create');
+    Route::get('/update/{content_id}', [ContentController::class, 'update'])->name('contents.update');
+    Route::get('/delete/{content_id}', [ContentController::class, 'delete'])->name('contents.delete');
+    Route::post('/save', [ContentController::class, 'save'])->name('contents.save');
 });
