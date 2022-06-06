@@ -37,11 +37,15 @@ class UserController extends Controller
   public function store(Request $request)
   {
     $user = new User;
-    // $user->name = $request->name;
-    // $user->email = $request->email;
-    $user->name = 'Some name';
-    $user->email = 'Some email';
-    $user->password = 'password';
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->password = $request->password;
+    // $user->name = 'Some name';
+    // $user->email = 'Some email';
+    // $user->password = 'password';
+    // $form = $request->all();
+    // unset($form['_token']);
+    // $user->fill($form)->save();
     $user->save();
     return redirect('users');
   }

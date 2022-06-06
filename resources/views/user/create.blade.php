@@ -6,17 +6,12 @@
 @section('content')
 <div class="container">
   <h1>ユーザー新規作成</h1>
-  <form method="POST" action="{{route('user.store')}}">
+  <form action='{{ route('user.store') }}' method='post'>
     @csrf
-    <div class="form-group">
-      <label for="title">{{ __('Name') }}</label>
-      <input id="title" type="text" class="form-control" name="title" required autofocus>
-    </div>
-    <div class="form-group">
-      <label for="title">{{ __('Email') }}</label>
-      <input id="title" class="form-control" name="title" rows="8" required></textarea>
-    </div>
-    <button type="submit" name="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+      名前：<input type='text' name='name'><br>
+      email：<input type='text' name='email'><br>
+      パスワード：<input type='text' name='password'><br>
+      <input type='submit' value='投稿' class="btn btn-primary">
   </form>
 </div>
 @endsection
