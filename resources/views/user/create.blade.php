@@ -6,7 +6,7 @@
 @section('content')
 <div class="container">
   <h1>{{ $title }}</h1>
-  <form action="{{ url('users') }}" method="post">
+  <form action="{{ url('user') }}" method="post">
     @csrf
     @method('POST')
     <div class="form-group">

@@ -36,12 +36,16 @@ Route::get('/boot_template', function () {
     return view('boot_template/index');
 });
 
-Route::get('/users','UserController@getindex')->name('users');
-Route::get('/user/{id}','UserController@getshow')->name('user.show');
-Route::get('/users/create','UserController@create')->name('users.create');
-Route::get('/users/store','UserController@store')->name('users.store');
-Route::post('/users/store','UserController@store')->name('users.store');
-Route::get('/users/{id}/edit','UserController@edit')->name('user.edit');
+Route::get('/users','UserController@index')->name('users');
+Route::get('/user/{id}','UserController@show')->name('user.show');
+Route::get('/user/create','UserController@create')->name('user.create');
+Route::get('/user/store','UserController@store')->name('user.store');
+Route::post('/user/store','UserController@store')->name('user.store');
+Route::get('/user/edit/{id}','UserController@edit')->name('user.edit');
+Route::get('/user/update/{id}','UserController@update')->name('user.update');
+Route::post('/user/update/{id}','UserController@update')->name('user.update');
+Route::get('/user/destroy/{id}','UserController@destroy')->name('user.destory');
+Route::post('/user/destroy/{id}','UserController@destroy')->name('user.destroy');
 // Route::get('/users/store','UserController@store')->name('users.store');
 // Route::get('/user', function () {
 //     return view('user/index');

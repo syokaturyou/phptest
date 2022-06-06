@@ -6,9 +6,8 @@
 @section('content')
 <h1>ユーザー編集</h1>
 <div class="container">
-  <form action="{{ url('user/'.$user->id) }}" method="post">
+  <form method="POST" action="{{route('user.update',['id' =>$user->id])}}">
     @csrf
-    @method('PUT')
     <div class="form-group">
       <label for="name">{{ __('Name') }}</label>
       <input id="name" type="text" class="form-control" name="name" value="{{ $user->name }}" required autofocus>
