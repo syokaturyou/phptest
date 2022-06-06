@@ -18,5 +18,6 @@
     </div>
     <button type="submit" name="submit" class="btn btn-primary">{{ __('Submit') }}</button>
   </form>
+  <a href="{{route('user.show',['id'=>$user->id])}}">{{ __('詳細に戻る') }}</a>
 </div>
 @endsection

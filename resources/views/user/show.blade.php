@@ -10,20 +10,7 @@
 　{{$user->email}}
 　{{$user->password}}
 　<div>
-    <a href="{{ url('users/'.$user->id.'/edit') }}" class="btn btn-primary">
-      {{ __('Edit') }}
-    </a>
+    <a href="{{ route('users') }}" class="btn btn-primary btn-sm">{{ __('一覧に戻る') }}</a>
+    <a href="{{route('user.edit',['id'=>$user->id])}}" class="btn btn-success btn-sm">{{ __('編集') }}</a>
   </div>
-  <dt class="col-md-2">{{ __('Created') }}:</dt>
-  <dd class="col-md-10">
-    <time itemprop="dateCreated" datetime="{{ $user->created_at }}">
-      {{ $user->created_at }}
-    </time>
-  </dd>
-  <dt class="col-md-2">{{ __('Updated') }}:</dt>
-  <dd class="col-md-10">
-    <time itemprop="dateModified" datetime="{{ $user->updated_at }}">
-      {{ $user->updated_at }}
-    </time>
-  </dd>
 @endsection

@@ -25,7 +25,7 @@ class UserController extends Controller
     // $user = User::find($id);
     // return view('user.edit', ['user' => $user]);
     $user=User::find($id);
-    return view('user/show', compact('user'));
+    return view('user/edit', compact('user'));
   }
 
   
@@ -41,8 +41,9 @@ class UserController extends Controller
     // $user->email = $request->email;
     $user->name = 'Some name';
     $user->email = 'Some email';
+    $user->password = 'password';
     $user->save();
-    return redirect('user/'.$user->id);
+    return redirect('users');
   }
     
   public function update(Request $request, $id)
@@ -50,10 +51,11 @@ class UserController extends Controller
     $user=User::find($id);
     // $user->name = $request->name;
     // $user->email = $request->email;
-    $user->name = 'Some name';
-    $user->email = 'Some email';
+    $user->name = 'Some name2';
+    $user->email = 'Some email2';
+    $user->password = 'password2';
     $user->save();
-    return redirect('/user/index');
+    return redirect('/users');
   }
     
   public function destroy(Request $request, $id)

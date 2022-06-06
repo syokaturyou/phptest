@@ -37,7 +37,7 @@ Route::get('/boot_template', function () {
 });
 
 Route::get('/users','UserController@index')->name('users');
-Route::get('/user/{id}','UserController@show')->name('user.show');
+Route::get('/user/show/{id}','UserController@show')->name('user.show');
 Route::get('/user/create','UserController@create')->name('user.create');
 Route::get('/user/store','UserController@store')->name('user.store');
 Route::post('/user/store','UserController@store')->name('user.store');
