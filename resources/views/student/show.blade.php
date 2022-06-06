@@ -15,6 +15,6 @@
 <div>
   電話番号{{$student->tel}}
 </div>
-<a href="{{ route('student.list') }}" class="btn btn-primary btn-sm">{{ __('一覧に戻る') }}</a>
+<a href="{{ route('student.index') }}" class="btn btn-primary btn-sm">{{ __('一覧に戻る') }}</a>
 <a href="{{route('student.edit',['id'=>$student->id])}}" class="btn btn-success btn-sm">{{ __('編集') }}</a>
 @endsection

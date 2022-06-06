@@ -13,23 +13,30 @@
  
 <table border="1">
     <tr>
-        <th>title</th>
-        <th>詳細</th>
-        <th>編集</th>
-        <th>削除</th>
+      <th>title</th>
+      <th>詳細</th>
+      <th>編集</th>
+      <th>削除</th>
     </tr>
     @foreach ($books as $book)
     <tr>
-        <td>{{ $book->title }}</td>
-        <th><a href="{{ route('book.show',$book->id)}}">詳細</a></th>
-        <th><a href="{{ route('book.edit',$book->id)}}">編集</a></th>
-        <th>
-            <form action="{{ route('book.destroy', $book->id)}}" method="POST">
-                @csrf
-                @method('DELETE')
-                <input type="submit" name="" value="削除">
-            </form>
-        </th>
+      <td>{{ $book->title }}</td>
+      <th><a href="{{ route('book.show',$book->id)}}">詳細</a></th>
+      <th><a href="{{ route('book.edit',$book->id)}}">編集</a></th>
+      <th>
+        <form action="{{ route('book.destroy', $book->id)}}" method="post">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="btn btn-danger">
+            {{ __('Delete') }}
+          </button>
+        </form>
+        <form action="{{ route('book.destroy', $book->id)}}" method="POST">
+          @csrf
+          @method('DELETE')
+          <input type="submit" name="" value="削除">
+        </form>
+      </th>
     </tr>
     @endforeach
 </table>

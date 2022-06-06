@@ -22,5 +22,6 @@
         <td>{{ $book->created_at }}</td>
         <td>{{ $book->updated_at }}</td>
     </tr>
+    
 </table>
 @endsection

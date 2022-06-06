@@ -8,6 +8,8 @@ namespace App\Http\Controllers;
 
 // use Illuminate\Support\Facades\DB;
 use App\Models\Book;
+
+use Illuminate\Database\Eloquent\Model;
 // use App\Models\Content;
 
 class BookController extends Controller
@@ -19,8 +21,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
-        return view('book.index', compact('books'));
+      $books = Book::all();
+      // return view('book.index', compact('books'));
+      return view('book.index', ['books' => $books]);
     }
 
     /**
@@ -30,7 +33,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('book.create');
+      return view('book.create');
     }
 
     /**
@@ -39,10 +42,15 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBook $request)
+    public function store(Request $request)
     {
-        Book::create($request->all());
-        return redirect()->route('book.index')->with('success', '新規登録完了しました');
+      // Book::create($request->all());
+      // return redirect()->route('book.index')->with('success', '新規登録完了しました');
+      $book = new Book;
+      $book->title = $request->title;
+      $book->author = $request->author;
+      $book->save();
+      return redirect('book/'.$book->id);
     }
 
     /**
@@ -51,10 +59,11 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Book $book)
     {
-        $book = Book::find($id);
-        return view('book.show', compact('book'));
+      // $book = Book::find($id);
+      // return view('book.show', compact('book'));
+      return view('book.show', ['book' => $book]);
     }
 
     /**
@@ -63,10 +72,11 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Book $book)
     {
-        $book = Book::find($id);
-        return view('book.edit', compact('book'));
+      // $book = Book::find($id);
+      // return view('book.edit', compact('book'));
+      return view('book.edit', ['book' => $book]);
     }
 
     /**
@@ -76,14 +86,18 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreBook $request, $id)
+    public function update(Request $request, Book $book)
     {
-        $update = [
-            'title' => $request->title,
-            'author' => $request->author
-        ];
-        Book::where('id', $id)->update($update);
-        return back()->with('success', '編集完了しました');
+      // $update = [
+      //   'title' => $request->title,
+      //   'author' => $request->author
+      // ];
+      // Book::where('id', $id)->update($update);
+      // return back()->with('success', '編集完了しました');
+      $book->title = $request->title;
+      $book->author = $request->author;
+      $book->save();
+      return redirect('book/'.$book->id);
     }
 
     /**
@@ -92,9 +106,12 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Book $book)
     {
-        Book::where('id', $id)->delete();
-        return redirect()->route('book.index')->with('success', '削除完了しました');
+      // $Book=Book::find($id);
+      $book->delete();
+      return redirect('student/list');
+      // Book::where('id', $id)->delete();
+      // return redirect()->route('book.index')->with('success', '削除完了しました');
     }
 }

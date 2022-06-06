@@ -8,8 +8,9 @@
 <div class="container">
   <form method="POST" action="{{route('student.update',['id' =>$student->id])}}">
     @csrf
-    <div>
-      名前<input type="text" name=name value="{{$student->name}}">
+     <div class="form-group">
+      <label for="name">{{ __('Name') }}</label>
+      <input id="name" type="text" class="form-control" name="name" value="{{ $student->name }}" required autofocus>
     </div>
     <div>
       メールアドレス<input type="text" name=email value="{{$student->email}}">

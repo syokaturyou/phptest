@@ -7,9 +7,9 @@
 <h1>新規作成</h1>
 <form method="POST" action="{{route('student.store')}}">
   @csrf
-  <div>
-    <label for="form-name">名前</label>
-    <input type="text" name="name" id="form-name" required>
+  <div class="form-group">
+    <label for="name">{{ __('name') }}</label>
+    <input id="name" type="text" class="form-control" name="name">
   </div>
 
   <div>
@@ -24,5 +24,5 @@
 
   <button type="submit">登録</button>
 </form>
-<a href="{{ route('student.list') }}">{{ __('一覧へ戻る') }}</a>
+<a href="{{ route('student.index') }}">{{ __('一覧へ戻る') }}</a>
 @endsection

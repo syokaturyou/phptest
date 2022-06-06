@@ -32,6 +32,7 @@
           <a>
             <form method="POST" action="{{route('student.destroy',['id'=>$student->id])}}">
               @csrf
+              @method('DELETE')
               <button type="submit" class="btn btn-danger btn-sm">削除</button>
             </form>
           </a>

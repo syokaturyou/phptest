@@ -54,13 +54,19 @@ Route::get('/users/{id}/edit','UserController@edit')->name('user.edit');
 // Route::get('/student/{id}/edit','StudentController@getedit')->name('student.edit');
 // Route::get('/student/edit/{id}', 'StudentController@getedit')->name('student.edit');
 
+// Route::resource('student', BookController::class);
+
+
 Route::group(['prefix'=>'student'], function () {
-  Route::get('list', 'StudentController@getlist')->name('student.list');
+  Route::get('index', 'StudentController@index')->name('student.index');
   Route::get('create', 'StudentController@create')->name('student.create');
+  Route::get('store', 'StudentController@store')->name('student.store');
   Route::post('store', 'StudentController@store')->name('student.store');
   Route::get('show/{id}', 'StudentController@show')->name('student.show');
-  Route::get('edit/{id}', 'StudentController@getedit')->name('student.edit');
+  Route::get('edit/{id}', 'StudentController@edit')->name('student.edit');
+  Route::get('update/{id}', 'StudentController@update')->name('student.update');
   Route::post('update/{id}', 'StudentController@update')->name('student.update');
+  Route::get('destroy/{id}', 'StudentController@destroy')->name('student.destroy');
   Route::post('destroy/{id}', 'StudentController@destroy')->name('student.destroy');
 });
 

@@ -19,7 +19,8 @@
 </ul>
 @endif
  
-<form action="{{ route('book.update',$book->id)}}" method="POST">
+
+<form action="{{ url('book/'.$book->id) }}" method="post">
     @csrf
     @method('PUT')
     <p>タイトル：<input type="text" name="title" value="{{ $book->title }}"></p>
