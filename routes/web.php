@@ -17,7 +17,7 @@ use App\Http\Controllers\ContentController;
 Route::resource('book', BookController::class);
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
 // Route::get('/calculate', 'CalculateController@getcalc')->name('calculate');
@@ -39,6 +39,8 @@ Route::get('/boot_template', function () {
 Route::get('/users','UserController@getindex')->name('users');
 Route::get('/user/{id}','UserController@getshow')->name('user.show');
 Route::get('/users/create','UserController@create')->name('users.create');
+Route::get('/users/store','UserController@store')->name('users.store');
+Route::post('/users/store','UserController@store')->name('users.store');
 Route::get('/users/{id}/edit','UserController@edit')->name('user.edit');
 // Route::get('/users/store','UserController@store')->name('users.store');
 // Route::get('/user', function () {
@@ -79,9 +81,9 @@ Route::group(['prefix'=>'student'], function () {
 // });
 
 Route::prefix('contents')->group(function() {
-    Route::get('/list', [ContentController::class, 'list'])->name('contents.list');
-    Route::get('/create', [ContentController::class, 'create'])->name('contents.create');
-    Route::get('/update/{content_id}', [ContentController::class, 'update'])->name('contents.update');
-    Route::get('/delete/{content_id}', [ContentController::class, 'delete'])->name('contents.delete');
-    Route::post('/save', [ContentController::class, 'save'])->name('contents.save');
+  Route::get('/list', [ContentController::class, 'list'])->name('contents.list');
+  Route::get('/create', [ContentController::class, 'create'])->name('contents.create');
+  Route::get('/update/{content_id}', [ContentController::class, 'update'])->name('contents.update');
+  Route::get('/delete/{content_id}', [ContentController::class, 'delete'])->name('contents.delete');
+  Route::post('/save', [ContentController::class, 'save'])->name('contents.save');
 });
