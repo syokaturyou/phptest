@@ -69,11 +69,9 @@ class StudentController extends Controller
     return redirect('/student/index');
   }
   
-  public function destroy(Student $student)
+  public function destroy(Request $request, $id)
   {
-    // $student=Student::find($id);
-    // $student->delete();
-    // return redirect('student/index');
+    $student=Student::find($id);
     $student->delete();
     return redirect('student/index');
   }
