@@ -21,9 +21,12 @@
           <a href="{{ route('users') }}" class="btn btn-primary btn-sm">{{ __('ユーザー一覧') }}</a>
           <a href="{{ route('student.index') }}" class="btn btn-primary btn-sm">{{ __('受講生一覧') }}</a>
           <a href="{{ route('book.index') }}" class="btn btn-primary btn-sm">{{ __('本一覧') }}</a>
-          <a href="{{ route('contents.list') }}" class="btn btn-primary btn-sm">{{ __('コンテンツ一覧') }}</a>
+          
           <a href="{{ url('/crud/') }}" class="btn btn-primary btn-sm">{{ __('crud') }}</a>
+          <a href="{{ route('todo.index') }}" class="btn btn-primary btn-sm">{{ __('todo一覧') }}</a>
+          <a href="{{ route('todo.create') }}" class="btn btn-primary btn-sm">{{ __('todo作成') }}</a>
         </li>
+        </div>
       </ul>
     </div>
   </div>

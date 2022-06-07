@@ -10,13 +10,13 @@
     @csrf
      <div class="form-group">
       <label for="name">{{ __('Name') }}</label>
-      <input type="text" name="name" value="{{ $student->name }}">
+      <input type="text" name="name" id="name" value="{{ $student->name }}">
     </div>
     <div>
-      メールアドレス<input type="text" name=email value="{{$student->email}}">
+      メールアドレス<input type="email" id="email" name="email" value="{{$student->email}}">
     </div>
     <div>
-      電話番号<input type="text" name=tel value="{{$student->tel}}">
+      電話番号<input type="text" id="tel" name="tel" value="{{$student->tel}}">
     </div>
     <input type="submit" value="更新する" class="btn btn-primary">
   </form>

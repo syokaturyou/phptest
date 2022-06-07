@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContentController;
-
+use App\Http\Controllers\TodoController;
+// use App\Http\Controllers\ContentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,11 +14,14 @@ use App\Http\Controllers\ContentController;
 |
 */
 
-Route::resource('book', BookController::class);
-
 Route::get('/', function () {
   return view('welcome');
 });
+
+// Route::resource('todo', TodoController::class);
+Route::resource('todo', 'TodoController');
+
+Route::resource('book', BookController::class);
 
 // Route::get('/crud', 'CrudController@getIndex');
 Route::get('/crud', function () {
@@ -49,6 +52,9 @@ Route::group(['prefix'=>'student'], function () {
   Route::post('destroy/{id}', 'StudentController@destroy')->name('student.destroy');
 });
 
+
+// Route::resource('student', StudentController::class);
+
 // Route::prefix('contents')->group(function() {
 //     Route::get('/list', 'ContentController@list')->name('contents.list');
 //     Route::get('/create', 'ContentController@create')->name('contents.create');
@@ -57,10 +63,10 @@ Route::group(['prefix'=>'student'], function () {
 //     Route::post('/save', 'ContentController@save')->name('contents.save');
 // });
 
-Route::prefix('contents')->group(function() {
-  Route::get('/list', [ContentController::class, 'list'])->name('contents.list');
-  Route::get('/create', [ContentController::class, 'create'])->name('contents.create');
-  Route::get('/update/{content_id}', [ContentController::class, 'update'])->name('contents.update');
-  Route::get('/delete/{content_id}', [ContentController::class, 'delete'])->name('contents.delete');
-  Route::post('/save', [ContentController::class, 'save'])->name('contents.save');
-});
+// Route::prefix('contents')->group(function() {
+//   Route::get('/list', [ContentController::class, 'list'])->name('contents.list');
+//   Route::get('/create', [ContentController::class, 'create'])->name('contents.create');
+//   Route::get('/update/{content_id}', [ContentController::class, 'update'])->name('contents.update');
+//   Route::get('/delete/{content_id}', [ContentController::class, 'delete'])->name('contents.delete');
+//   Route::post('/save', [ContentController::class, 'save'])->name('contents.save');
+// });
