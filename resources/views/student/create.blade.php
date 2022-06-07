@@ -9,17 +9,17 @@
   @csrf
   <div class="form-group">
     <label for="name">名前</label>
-    <input id="name" type="name" name="name">
+    <input type="text" name="name">
   </div>
 
   <div>
     <label for="form-tel">電話番号</label>
-    <input type="tel" name="tel" id="tel">
+    <input type="text" name="tel">
   </div>
 
   <div>
     <label for="form-email">メールアドレス</label>
-    <input type="email" name="email" id="email">
+    <input type="email" name="email">
   </div>
 
   <button type="submit">登録</button>

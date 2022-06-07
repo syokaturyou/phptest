@@ -10,11 +10,11 @@
     @csrf
     <div class="form-group">
       <label for="name">{{ __('Name') }}</label>
-      <input id="name" type="text" class="form-control" name="name" value="{{ $user->name }}" required autofocus>
+      <input id="name" type="text" class="form-control"  name="name" value="{{ $user->name }}">
     </div>
     <div class="form-group">
       <label for="email">{{ __('Email') }}</label>
-      <textarea id="email" class="form-control" name="email" required>{{ $user->email }}</textarea>
+      <textarea id="email" class="form-control" name="email">{{ $user->email }}</textarea>
     </div>
     <button type="submit" name="submit" class="btn btn-primary">{{ __('Submit') }}</button>
   </form>

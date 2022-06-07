@@ -10,7 +10,7 @@
     @csrf
      <div class="form-group">
       <label for="name">{{ __('Name') }}</label>
-      <input id="name" type="text" class="form-control" name="name" value="{{ $student->name }}" required autofocus>
+      <input type="text" name="name" value="{{ $student->name }}">
     </div>
     <div>
       メールアドレス<input type="text" name=email value="{{$student->email}}">
