@@ -26,16 +26,21 @@ class StudentController extends Controller
   public function store(Request $request)
   {
     $student=new Student;
-    // $student->name=$request->input('name');
-    // $student->tel=$request->input('tel');
-    // $student->email=$request->input('email');
+    $student->tel = $request->input('tel');
+    $email = $request->input('email');
+   
     $student->name = 'Some name';
-    $student->email = 'Some22 email';
-    $student->tel = 'Some tel';
+    // $student->email = 'Some22 email';
+    // $student->tel = 'Some tel';
     //DBに保存
     $student->save();
-    //一覧表示画面にリダイレクト
-    return redirect('student/index');
+    // //一覧表示画面にリダイレクト
+    // return redirect('student/index');
+    return view('student.index')->with([
+            // 'name' => $name,
+            // 'tel' => $tel,
+            'email' => $email
+    ]);
   }
   
   public function show($id)

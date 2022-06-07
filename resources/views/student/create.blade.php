@@ -8,18 +8,18 @@
 <form method="POST" action="{{route('student.store')}}">
   @csrf
   <div class="form-group">
-    <label for="name">{{ __('name') }}</label>
-    <input id="name" type="text" class="form-control" name="name">
+    <label for="name">名前</label>
+    <input id="name" type="name" name="name">
   </div>
 
   <div>
     <label for="form-tel">電話番号</label>
-    <input type="tel" name="telephone" id="form-tel">
+    <input type="tel" name="tel" id="tel">
   </div>
 
   <div>
     <label for="form-email">メールアドレス</label>
-    <input type="email" name="email" id="form-email">
+    <input type="email" name="email" id="email">
   </div>
 
   <button type="submit">登録</button>
