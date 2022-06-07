@@ -5,16 +5,12 @@ namespace App\Http\Controllers;
 // use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 // use App\Http\Requests\StudentRequest;
-use Validator;
 use App\Models\Student;
 
 class StudentController extends Controller
 {
   public function index()
   {
-  // $query = \App\Student::query();
-  // 全件取得 +ページネーション
-  // $students = DB::table('students')->simplePaginate(15);
   $students = Student::all();
   return view('student.index')->with('students',$students);
   }
@@ -26,40 +22,13 @@ class StudentController extends Controller
   
   public function store(Request $request)
   {
-    // $student=new Student;
-    // // $student = Student::findOrFail($id);
-    // $student->name = '22name';
-    // $student->tel = $request->tel;
-    // // $request->input('tel');
-    // $student->email = $request->input('email');
-    // // $student->email = 'Some22 email';
-    // // $student->tel = 'Some tel';
-    // //DBに保存
-    // $student->save();
-    
-    $validator = Validator::make($request->all(), [
-    'name' => 'required | max:191',
-    'email' => 'required',
-    'tel' => 'required',
-  ]);
-  // バリデーション:エラー
-  if ($validator->fails()) {
-    return redirect()
-      ->route('student.create')
-      ->withInput()
-      ->withErrors($validator);
-  }
-  // create()は最初から用意されている関数
-  // 戻り値は挿入されたレコードの情報
-    $result = Student::create($request->all());
+    $student=new Student;
+    $student->name = '22name';
+    $student->tel = '22333';
+    $student->email = $request->input('email');
+    $student->save();
     return redirect()->route('student.index');
-    // //一覧表示画面にリダイレクト
-    // return redirect('student/index')->with('name', 'email', 'tel');
-    // return view('student.index')->with([
-    //         // 'name' => $name,
-    //         // 'tel' => $tel,
-    //         'email' => $email
-    // ]);
+  
   }
   
   public function show($id)

@@ -24,6 +24,7 @@
               <tr class="hover:bg-grey-lighter">
                 <td class="py-4 px-6 border-b border-grey-light">
                   <p>{{$todo->todo}}</p>
+                  <a href="{{ route('todo.show',$todo->id) }}">{{$todo->todo}}</a>
                 </td>
                 <td class="py-4 px-6 border-b border-grey-light">{{$todo->deadline}}</td>
                 <td class="py-4 px-6 border-b border-grey-light flex justify-center">

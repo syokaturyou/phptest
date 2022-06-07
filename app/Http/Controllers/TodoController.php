@@ -43,8 +43,9 @@ class TodoController extends Controller
       $validator = Validator::make($request->all(), [
         'todo' => 'required | max:191',
         'deadline' => 'required',
-       ]);
-       // バリデーション:エラー
+        // 'comment' => 'required'
+      ]);
+      // バリデーション:エラー
       if ($validator->fails()) {
         return redirect()
         ->route('todo.create')
@@ -66,7 +67,8 @@ class TodoController extends Controller
      */
     public function show($id)
     {
-        //
+      $todo = Todo::find($id);
+      return view('todo.show', ['todo' => $todo]);
     }
 
     /**
