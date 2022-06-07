@@ -20,20 +20,9 @@ Route::get('/', function () {
   return view('welcome');
 });
 
-// Route::get('/calculate', 'CalculateController@getcalc')->name('calculate');
-
-Route::get('/calculate', function () {
-    return view('calculate/num');
-});
-
 // Route::get('/crud', 'CrudController@getIndex');
 Route::get('/crud', function () {
     return view('crud/index');
-});
-// Route::get('/boot_template', 'Boot_templateController@getIndex');
-
-Route::get('/boot_template', function () {
-    return view('boot_template/index');
 });
 
 Route::get('/users','UserController@index')->name('users');
@@ -46,22 +35,6 @@ Route::get('/user/update/{id}','UserController@update')->name('user.update');
 Route::post('/user/update/{id}','UserController@update')->name('user.update');
 Route::get('/user/destroy/{id}','UserController@destroy')->name('user.destory');
 Route::post('/user/destroy/{id}','UserController@destroy')->name('user.destroy');
-// Route::get('/users/store','UserController@store')->name('users.store');
-// Route::get('/user', function () {
-//     return view('user/index');
-// });
-
-// Route::get('/student/list','StudentController@getlist')->name('student');
-// Route::get('/student/list', function () {
-//     return view('student/list');
-// });
-
-// Route::get('/student/list','StudentController@getlist')->name('student.list');
-// Route::get('/student/{id}/edit','StudentController@getedit')->name('student.edit');
-// Route::get('/student/edit/{id}', 'StudentController@getedit')->name('student.edit');
-
-// Route::resource('student', BookController::class);
-
 
 Route::group(['prefix'=>'student'], function () {
   Route::get('index', 'StudentController@index')->name('student.index');
