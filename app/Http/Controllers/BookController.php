@@ -17,7 +17,6 @@ class BookController extends Controller
     public function index()
     {
       $books = Book::all();
-      // return view('book.index', compact('books'));
       return view('book.index', ['books' => $books]);
     }
 
@@ -39,8 +38,6 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-      // Book::create($request->all());
-      // return redirect()->route('book.index')->with('success', '新規登録完了しました');
       $book = new Book;
       $book->title = $request->input('title');
       $book->author = $request->input('author');
@@ -56,8 +53,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-      // $book = Book::find($id);
-      // return view('book.show', compact('book'));
+      $book = Book::find($id);
       return view('book.show', ['book' => $book]);
     }
 
@@ -69,8 +65,7 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-      // $book = Book::find($id);
-      // return view('book.edit', compact('book'));
+      $book = Book::find($id);
       return view('book.edit', ['book' => $book]);
     }
 
@@ -98,7 +93,7 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-      // $Book=Book::find($id);
+      $Book=Book::find($id);
       $book->delete();
       return redirect('student/list');
       // Book::where('id', $id)->delete();

@@ -23,7 +23,6 @@ Route::resource('todo', 'TodoController');
 
 Route::resource('book', 'BookController');
 
-// Route::get('/crud', 'CrudController@getIndex');
 Route::get('/crud', function () {
     return view('crud/index');
 });

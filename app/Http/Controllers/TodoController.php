@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-// use Validator;
 use App\Models\Todo;
 
 class TodoController extends Controller
