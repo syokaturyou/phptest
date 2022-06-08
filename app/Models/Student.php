@@ -14,6 +14,8 @@ class Student extends Model
     'email', 
     'tel',
   ];
+  
+  // protected $table = 'Student';
   // protected $guarded = [
   //   'id',
   //   'created_at',

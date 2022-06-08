@@ -25,8 +25,15 @@ class StudentController extends Controller
     $student=new Student;
     $student->name = '22name';
     $student->tel = '22333';
+    // $student->email = input("email");
     $student->email = $request->input('email');
+    // $inputData = $request->all();
+    // student::create($inputData);
+    // DB::table('student')->insert($inputData);
+    // $student->email = $student['email'];
+    // dd($student);
     $student->save();
+    // dd($student);
     return redirect()->route('student.index');
   
   }
@@ -56,6 +63,7 @@ class StudentController extends Controller
     // $student->email = 'Some email';
     $student->tel = 'Some tel';
     //DBに保存
+    dd($student);
     $student->save();
     //処理が終わったらstudent/listにリダイレクト
     return redirect('/student/index');

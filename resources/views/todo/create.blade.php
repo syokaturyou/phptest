@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      {{ __('Create New Todo') }}
+  {{ __('Create New Todo') }}
 </h2>
 <div class="py-12">
     
