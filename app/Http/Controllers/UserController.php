@@ -7,7 +7,6 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-  // public function getindex(Request $request){return view('user.index');}
   public function index()
   {
     $users = User::all();
@@ -22,8 +21,6 @@ class UserController extends Controller
   
   public function edit($id)
   {
-    // $user = User::find($id);
-    // return view('user.edit', ['user' => $user]);
     $user=User::find($id);
     return view('user/edit', compact('user'));
   }
@@ -37,15 +34,9 @@ class UserController extends Controller
   public function store(Request $request)
   {
     $user = new User;
-    $user->name = $request->name;
-    $user->email = $request->email;
-    $user->password = $request->password;
-    // $user->name = 'Some name';
-    // $user->email = 'Some email';
-    // $user->password = 'password';
-    // $form = $request->all();
-    // unset($form['_token']);
-    // $user->fill($form)->save();
+    $user->name = $request->input('name');
+    $user->email = $request->input('email');
+    $user->password = $request->input('password');
     $user->save();
     return redirect('users');
   }
@@ -53,11 +44,8 @@ class UserController extends Controller
   public function update(Request $request, $id)
   {
     $user=User::find($id);
-    // $user->name = $request->name;
-    // $user->email = $request->email;
-    $user->name = 'Some name2';
-    $user->email = 'Some email2';
-    $user->password = 'password2';
+    $user->name = $request->input('name');
+    $user->email = $request->input('email');
     $user->save();
     return redirect('/users');
   }

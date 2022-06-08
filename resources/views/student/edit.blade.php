@@ -6,7 +6,7 @@
 @section('content')
 <h1>受講生編集</h1>
 <div class="container">
-  <form method="POST" action="{{route('student.update',['id' =>$student->id])}}">
+  <form method="GET" action="{{route('student.update',['id' =>$student->id])}}">
     @csrf
      <div class="form-group">
       <label for="name">{{ __('Name') }}</label>

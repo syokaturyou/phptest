@@ -2,15 +2,10 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
-// use App\Http\Requests\StoreBook;
-// use App\Book;
-
-// use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use App\Models\Book;
 
 use Illuminate\Database\Eloquent\Model;
-// use App\Models\Content;
 
 class BookController extends Controller
 {
@@ -47,8 +42,8 @@ class BookController extends Controller
       // Book::create($request->all());
       // return redirect()->route('book.index')->with('success', '新規登録完了しました');
       $book = new Book;
-      $book->title = $request->title;
-      $book->author = $request->author;
+      $book->title = $request->input('title');
+      $book->author = $request->input('author');
       $book->save();
       return redirect('book/'.$book->id);
     }
@@ -86,16 +81,11 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, $id)
     {
-      // $update = [
-      //   'title' => $request->title,
-      //   'author' => $request->author
-      // ];
-      // Book::where('id', $id)->update($update);
-      // return back()->with('success', '編集完了しました');
-      $book->title = $request->title;
-      $book->author = $request->author;
+      $book=Student::find($id);
+      $book->title = $request->input('title');
+      $book->author = $request->input('author');
       $book->save();
       return redirect('book/'.$book->id);
     }

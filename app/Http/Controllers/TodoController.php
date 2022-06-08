@@ -44,22 +44,6 @@ class TodoController extends Controller
       $todo->todo = '22name';
       $todo->deadline = '22333';
       $todo->comment = '22333';
-      // $validator = Validator::make($request->all(), [
-      //   'todo' => 'required | max:191',
-      //   'deadline' => 'required',
-      //   // 'comment' => 'required'
-      // ]);
-      // // バリデーション:エラー
-      // if ($validator->fails()) {
-      //   return redirect()
-      //   ->route('todo.create')
-      //   ->withInput()
-      //   ->withErrors($validator);
-      // }
-      // // create()は最初から用意されている関数
-      // // 戻り値は挿入されたレコードの情報
-      // $result = Todo::create($request->all());
-      // ルーティング「todo.index」にリクエスト送信（一覧ページに移動）
       $todo->save();
       return redirect()->route('todo.index');
     }

@@ -15,12 +15,6 @@ class Todo extends Model
     'comment'
   ];
   
-  // protected $guarded = [
-  //   'id',
-  //   'created_at',
-  //   'updated_at',
-  // ];
-  
   public static function getAllOrderByDeadline()
   {
     return self::orderBy('deadline', 'asc')->get();

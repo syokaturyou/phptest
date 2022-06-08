@@ -18,11 +18,9 @@
     @endforeach
 </ul>
 @endif
- 
 
-<form action="{{ url('book/'.$book->id) }}" method="post">
+<form action="{{ route('book.update') }}" method="GET">
     @csrf
-    @method('PUT')
     <p>タイトル：<input type="text" name="title" value="{{ $book->title }}"></p>
     <p>著者：<input type="text" name="author" value="{{ $book->author }}"></p>
     <input type="submit" value="編集する">

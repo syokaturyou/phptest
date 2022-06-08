@@ -6,7 +6,7 @@
 @section('content')
 <div class="container">
   <h1>ユーザー新規作成</h1>
-  <form action='{{ route('user.store') }}' method='post'>
+  <form action='{{ route('user.store') }}' method='GET'>
     @csrf
       名前：<input type='text' name='name'><br>
       email：<input type='text' name='email'><br>

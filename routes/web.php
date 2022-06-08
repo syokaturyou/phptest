@@ -21,7 +21,7 @@ Route::get('/', function () {
 // Route::resource('todo', TodoController::class);
 Route::resource('todo', 'TodoController');
 
-Route::resource('book', BookController::class);
+Route::resource('book', 'BookController');
 
 // Route::get('/crud', 'CrudController@getIndex');
 Route::get('/crud', function () {
