@@ -46,3 +46,19 @@ Route::group(['prefix'=>'student'], function () {
   Route::get('destroy/{id}', 'StudentController@destroy')->name('student.destroy');
   Route::post('destroy/{id}', 'StudentController@destroy')->name('student.destroy');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
